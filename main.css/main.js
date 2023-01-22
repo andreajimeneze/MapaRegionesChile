@@ -133,18 +133,18 @@ descripcionRegion.innerText = regiones[opcion][2];
 }
 
 
-// function ocultarMensaje(opcion) {
-// document.querySelector(".card").hidden=true;
+function ocultarMensaje(opcion) {
+document.querySelector(".card").hidden=true;
 
-// switch (opcion) {
+switch (opcion) {
  
-// default:
-//   document.getElementById("img").src ="";
-//   document.getElementById("region").innerHTML = "";
-//   document.getElementById("atractivos").innerHTML = "";
-//   break;
-// }
-// }
+default:
+  document.getElementById("img").src ="";
+  document.getElementById("region").innerHTML = "";
+  document.getElementById("atractivos").innerHTML = "";
+  break;
+}
+}
 
 function modificarContenido(opcion){
   document.querySelector(".card").hidden=false;
