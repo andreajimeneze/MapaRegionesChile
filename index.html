@@ -27,15 +27,12 @@
 
     .container {
       display: flex;
-      flex-direction: row-reverse;
-      flex-wrap: wrap;
-      justify-content: space-evenly;
+      justify-content: center;
       width: 100%;
     }
 
-    .container .card {
-      width: max-content;
-      height: min-content;
+    #btnImg, #btnTextos {
+      border: solid 1px grey;
     }
   </style>
 </head>
@@ -44,35 +41,22 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
   <div class="text-center">
     <map name="mapa" class="figuras">
-      <area shape="circle" coords="40,100,15" href="#" onmouseover="mostrarMensaje(0)" onmouseout="ocultarMensaje(0)" ondblclick="modificarContenido(0)"/>
-      <area shape="circle" coords="90,100,15" href="#" onmouseover="mostrarMensaje(1)" onmouseout="ocultarMensaje(1)" ondblclick="modificarContenido(1)"/>
-      <area shape="rectangle" coords="150,50,230,130" href="#" onmouseover="mostrarMensaje(2)" onmouseout="ocultarMensaje(2)"ondblclick="modificarContenido(2)"/>
-      <area shape="rectangle" coords="270,50,390,150" href="#" onmouseover="mostrarMensaje(3)"
-        onmouseout="ocultarMensaje(3)" />
-      <area shape="rectangle" coords="400,100,490,160" href="#" onmouseover="mostrarMensaje(4)"
-        onmouseout="ocultarMensaje(4)" />
-      <area shape="circle" coords="510,140,20" href="#" onmouseover="mostrarMensaje(5)"
-        onmouseout="ocultarMensaje(5)" />
-      <area shape="circle" coords="550,130,20" href="#" onmouseover="mostrarMensaje(6)"
-        onmouseout="ocultarMensaje(6)" />
-      <area shape="circle" coords="580,140,20" href="#" onmouseover="mostrarMensaje(7)"
-        onmouseout="ocultarMensaje(7)" />
-      <area shape="circle" coords="620,160,20" href="#" onmouseover="mostrarMensaje(8)"
-        onmouseout="ocultarMensaje(8)" />
-      <area shape="circle" coords="660,170,15" href="#" onmouseover="mostrarMensaje(9)"
-        onmouseout="ocultarMensaje(9)" />
-      <area shape="circle" coords="695,170,15" href="#" onmouseover="mostrarMensaje(10)"
-        onmouseout="ocultarMensaje(10)" />
-      <area shape="circle" coords="750,180,30" href="#" onmouseover="mostrarMensaje(11)"
-        onmouseout="ocultarMensaje(11)" />
-      <area shape="circle" coords="800,190,15" href="#" onmouseover="mostrarMensaje(12)"
-        onmouseout="ocultarMensaje(12)" />
-      <area shape="rectangle" coords="825,175,925,215" href="#" onmouseover="mostrarMensaje(13)"
-        onmouseout="ocultarMensaje(13)" />
-      <area shape="rectangle" coords="950,175,1155,255" href="#" onmouseover="mostrarMensaje(14)"
-        onmouseout="ocultarMensaje(14)" />
-      <area shape="rectangle" coords="1180,125,1450,255" href="#" onmouseover="mostrarMensaje(15)"
-        onmouseout="ocultarMensaje(15)" />
+      <area shape="circle" coords="40,100,15" href="#" onmouseover="mostrarMensaje(0)"/>
+      <area shape="circle" coords="90,100,15" href="#" onmouseover="mostrarMensaje(1)"/>
+      <area shape="rectangle" coords="150,50,230,130" href="#" onmouseover="mostrarMensaje(2)"/>
+      <area shape="rectangle" coords="270,50,390,150" href="#" onmouseover="mostrarMensaje(3)"/>
+      <area shape="rectangle" coords="400,100,490,160" href="#" onmouseover="mostrarMensaje(4)"/>
+      <area shape="circle" coords="510,140,20" href="#" onmouseover="mostrarMensaje(5)"/>
+      <area shape="circle" coords="550,130,20" href="#" onmouseover="mostrarMensaje(6)"/>
+      <area shape="circle" coords="580,140,20" href="#" onmouseover="mostrarMensaje(7)"/>
+      <area shape="circle" coords="620,160,20" href="#" onmouseover="mostrarMensaje(8)"/>
+      <area shape="circle" coords="660,170,15" href="#" onmouseover="mostrarMensaje(9)"/>
+      <area shape="circle" coords="695,170,15" href="#" onmouseover="mostrarMensaje(10)"/>
+      <area shape="circle" coords="750,180,30" href="#" onmouseover="mostrarMensaje(11)"/>
+      <area shape="circle" coords="800,190,15" href="#" onmouseover="mostrarMensaje(12)"/>
+      <area shape="rectangle" coords="825,175,925,215" href="#" onmouseover="mostrarMensaje(13)"/>
+      <area shape="rectangle" coords="950,175,1155,255" href="#" onmouseover="mostrarMensaje(14)"/>
+      <area shape="rectangle" coords="1180,125,1450,255" href="#" onmouseover="mostrarMensaje(15)"/>
     </map>
     <img src="https://aprotur.cl/wp-content/uploads/2020/07/sur.png" usemap="#mapa">
   </div>
@@ -80,20 +64,24 @@
 
 
   <div class="container">
-
-    <div class="card">
-      <img src="..." class="card-img-top" alt="Paisajes de Chile" id="img" style="width:300px">
-      <button>subir</button>
+    <div class="card" hidden>
+         <img src="..." class="card-img-top" alt="Paisajes de Chile" class="imagen" id="img" style="width:300px">
+         <div>
+         <input type="file" name="" id="addImg" >
+         <button id="btnImg" onclick="cargarImg()">cargar</button>
+        </div>
+      
       <div class="card-body">
-        <h5 class="card-title" id="region">Región:</h5>
-        <input type="text">
-        <p class="card-text" id="atractivos">Atractivos: </p>
-        <textarea name="" id="" cols="30" rows="10"></textarea>
-        <button>modificar</button>
+        <h5 class="card-title">Región:</h5>
+        <input type="text" name="" id="region">
+        <p class="card-text">Atractivos: </p>
+        <textarea name="" id="atractivos" cols="70" rows="10"></textarea>
+        <button id="btnTextos" onclick="modificarTextos()">modificar</button>
       </div>
     </div>
+  </div>
 
-    <!-- <div class="card">
+  <!-- <div class="card">
       <img src="..." class="card-img-top" alt="Paisajes de Chile" id="img" style="width:300px">
       <input type="image" src="" alt="">
       <button id="btnImg">subir</button>
@@ -103,11 +91,7 @@
         <p class="card-text" id="atractivos">Atractivos: </p>
         <textarea name="" id="editAtractivos" cols="40" rows="20"></textarea>
         <button>Modificar</button> -->
-      </div>
-    </div>
-
-  </div>
-  </div>
+  
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
     crossorigin="anonymous"></script>
