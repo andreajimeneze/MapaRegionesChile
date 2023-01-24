@@ -1,7 +1,8 @@
 let imgRegion = document.getElementById("img");
 let tituloRegion = document.getElementById("region");
 let descripcionRegion = document.getElementById("atractivos");
-var aux = tituloRegion;
+let btnTextos = document.getElementById("btnTextos");
+
 
 
 let Arica = ["/assets/Arica.jpg","Arica y Parinacota","Lo más representativo de la región es el Morro de Arica, cerro costero de cerca de 130 metros de altura desde el cual puede apreciarse una vista panorámica de la ciudad."];
@@ -11,7 +12,7 @@ let Atacama = ["/assets/Atacama.jpg","Atacama","El Desierto florido es uno de lo
 let Coquimbo = ["/assets/Coquimbo.jpg","Coquimbo","La región de Coquimbo se caracteriza por sus cielos prístinos que permiten la observación del cosmos. Cuenta con más de 10 observatorios que pueden ser visitados por los turistas nacionales y extranjeros."];
 let Valparaiso = ["/assets/Valparaiso.jpg","Valparaíso","La región de Valparaíso cuenta con variados paisajes, pero uno de los íconos que representan a la región son los ascensores de la comuna de Valparaíso, los que constituyen un reto de la ingeniería del siglo XIX para mejorar el transporte hacia los cerros de la ciudad."];
 let Metropolitana = ["/assets/Metropolitana.jfif","Metropolitana de Santiago","El casco histórico de la región Metropolitana es un atractivo tanto para turistas nacionales como extranjeros.  Es el kilómetro 0 de la ciudad y cuyo núcleo es la Plaza de Armas en torno al cual existen varios edificios históricos como el Museo de Histórico Nacional, Correos de Chile, Municipalidad de Santiago, entre otros."];
-let Ohiggins = ["/assets/Ohiggins.jpg","O´Higgins","USewell fue un pueblo minero construido en 1904 y fue declarado Patrimonio de la Humanidad por la Unesco en el 2006 debido a su valor histórico y cultural. Se encuentra enclavado en la cordillera de Los Andes a 60 kilómetros de Rancagua."];
+let Ohiggins = ["/assets/Ohiggins.jpg","O Higgins","USewell fue un pueblo minero construido en 1904 y fue declarado Patrimonio de la Humanidad por la Unesco en el 2006 debido a su valor histórico y cultural. Se encuentra enclavado en la cordillera de Los Andes a 60 kilómetros de Rancagua."];
 let Maule = ["/assets/Maule.jfif","Maule","La Cascada Invertida es un fenómeno natural que se genera en las cercanías de la ciudad de Talca, en la Región del Maule. Como desafiando a la gravedad y alabando al viento, esta caída de agua se invierte gracias a las corrientes de aire y en vez de estrellar toda su masa en el río Maule se va esfumando hacia arriba, dando vuelta, literalmente, su camino."];
 let Nuble = ["/assets/Ñuble.jfif","Ñuble","Uno de los panoramas más conocidos e imprescindibles de la nueva Región de Ñuble son las Termas de Chillán, el resort de montaña que está a más de 60 km de la ahora capital regional y rodeado de un bosque milenario."];
 let Biobio = ["/assets/BioBio.jpg","Bio Bio","Uno de sus principales atractivos es el Portal de Antofagasta"];
@@ -129,20 +130,41 @@ function mostrarMensaje(opcion) {
 
 imgRegion.src = regiones[opcion][0];
 tituloRegion.value = regiones[opcion][1];
-descripcionRegion.innerText = regiones[opcion][2];
+descripcionRegion.value = regiones[opcion][2];
+btnTextos.value = opcion;
 
 }
 
 
-let modificarTextos = function modificarTextos(){
+let modificarTextos = function modificarTextos(btn){
 
-    regiones[0][1] = document.getElementById("region").value;
-    regiones[0][1] = document.getElementById("descripcionRegion");
-    console.dir(descripcionRegion);
-
-    // Valparaiso.fill (document.getElementById("region").value, 1, 2); 
+    let opcion = btn.value * 1;
+    
+    regiones[opcion][1] = document.getElementById("region").value;
+    regiones[opcion][2] = document.getElementById("atractivos").value;
 }
-document.querySelector(".card").hidden=true;
+
+function mostrarImagen(){
+  
+    var preview = document.querySelector('#img');
+    var file    = document.querySelector('input[type=file]').files[0];
+    
+    var reader = new FileReader();
+  
+    reader.onloadend = function () {
+      preview.src = reader.result;
+    }
+  
+    if (file) {
+      reader.readAsDataURL(file);
+      preview.src = imgRegion.src;
+      // preview.style.width="300px";
+    } else {
+      preview.src = "";
+    }
+  }
+  
+
 
 
 
