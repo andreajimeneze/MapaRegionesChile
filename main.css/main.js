@@ -147,7 +147,7 @@ let modificarTextos = function modificarTextos(btn){
 function mostrarImagen(){
   
     var preview = document.querySelector('#img');
-    var file    = document.querySelector('input[type=file]').files[0];
+    var file = document.querySelector('input[type=file]').files[0];
     
     var reader = new FileReader();
   
@@ -157,13 +157,11 @@ function mostrarImagen(){
   
     if (file) {
       reader.readAsDataURL(file);
-      preview.src = imgRegion.src;
-      // preview.style.width="300px";
+      
     } else {
       preview.src = "";
     }
   }
-  
 
 
 
